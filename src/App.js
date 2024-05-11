@@ -73,7 +73,7 @@ function App() {
       const data = await res.json();
       setData(data);
     } catch (e) {
-      alert("Data not Fetching");
+      alert("failed to fetch data");
     }
   }
 
