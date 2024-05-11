@@ -5,7 +5,6 @@ const URL =
   "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json";
 
 function Table({ data }) {
-  console.log(data);
   return (
     <table>
       <thead>
@@ -18,7 +17,7 @@ function Table({ data }) {
       </thead>
       <tbody>
         {data.map((item) => (
-          <tr>
+          <tr key={item.id}>
             <td>{item.id}</td>
             <td>{item.name}</td>
             <td>{item.email}</td>
@@ -74,7 +73,7 @@ function App() {
       const data = await res.json();
       setData(data);
     } catch (e) {
-      console.error(e);
+      console.log("data not fetching", e);
     }
   }
 
